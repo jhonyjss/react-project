@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
+import Arrays from './Components/Arrays'
 
 class App extends Component {
   // não precisa utilizar o construtor com public fields
@@ -22,24 +23,9 @@ class App extends Component {
   }
   
   render() {
-    const { name, counter } = this.state
     return (
       <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={this.handlePClick}>
-          {name} - {counter}
-        </p>
-        <a
-          onClick={this.handleAClick}
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Arrays />
     </div>
     );
   }
