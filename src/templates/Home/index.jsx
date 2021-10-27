@@ -1,7 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
 import { Component } from 'react';
-import Arrays from './Components/Arrays'
+import Arrays from '../../Components/Arrays'
 
 class App extends Component {
   // não precisa utilizar o construtor com public fields

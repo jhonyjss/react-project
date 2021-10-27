@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { PostCard } from './PostCard';
 
 class Arrays extends Component {
   state = {
@@ -33,13 +34,13 @@ class Arrays extends Component {
     <section className="container">
       <div className="posts">
         {posts.map(post => (
-          <div className="post">
-            <img src={post.cover} alt={post.title} />
-            <div key={post.id} className="post-content">
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-            </div>
-          </div>
+          <PostCard 
+            key={post.id}
+            title={post.title}
+            body={post.body}
+            id={post.id}
+            cover={post.cover}
+          />
         ))}
       </div>
     </section>
