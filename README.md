@@ -1,5 +1,5 @@
-# Getting Started with Create React App
-
+# Projeto Acadêmico sobre React
+ - Link de navegação: https://6181a58b505edf000869a9c9--quizzical-lamport-bd83db.netlify.app/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
