@@ -1,13 +1,15 @@
 import { Component } from 'react';
 import { Button } from './Button';
 import { PostCard } from './PostCard';
+import { TextInput } from './TextInput';
 
 class Arrays extends Component {
   state = {
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 2,
+    postsPerPage: 5,
+    searchValue: '',
   };
 
   componentDidMount() {
@@ -44,28 +46,54 @@ class Arrays extends Component {
     this.setState({ posts, page: nextPage });
   };
 
+  handleChange = (e) => {
+    const { value } = e.target;
+    this.setState({ searchValue: value });
+  };
+
   render() {
-    const { page, postsPerPage, allPosts, posts } = this.state;
+    const { page, postsPerPage, allPosts, posts, searchValue } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
+
+    const filteredPosts = !!searchValue
+      ? allPosts.filter((post) => {
+          return post.title
+            .toLowerCase()
+            .includes(searchValue.toLocaleLowerCase());
+        })
+      : posts;
 
     return (
       <section className="container mx-auto">
-        <div className="posts">
-          {posts.map((post) => (
-            <PostCard
-              key={post.id}
-              title={post.title}
-              body={post.body}
-              id={post.id}
-              cover={post.cover}
-            />
-          ))}
+        <div className="w-full my-2">
+          {!!searchValue && <h1>Search value: {searchValue}</h1>}
+          <TextInput
+            searchValue={searchValue}
+            handleChange={this.handleChange}
+          ></TextInput>
         </div>
-        <Button
-          text="LOAD MORE"
-          disabled={noMorePosts}
-          onClick={this.loadMorePosts}
-        ></Button>
+        {filteredPosts.length > 0 && (
+          <div className="posts">
+            {filteredPosts.map((post) => (
+              <PostCard
+                key={post.id}
+                title={post.title}
+                body={post.body}
+                id={post.id}
+                cover={post.cover}
+              />
+            ))}
+          </div>
+        )}
+
+        {filteredPosts.length === 0 && <p>Não existem posts =(</p>}
+        {!searchValue && (
+          <Button
+            text="LOAD MORE"
+            disabled={noMorePosts}
+            onClick={this.loadMorePosts}
+          ></Button>
+        )}
       </section>
     );
   }
