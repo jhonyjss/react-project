@@ -1,11 +1,10 @@
-import Arrays from '../../Components/Arrays';
+import React from "react";
+import Arrays from "../../Components/Arrays";
 
-function App() {
+export function Home() {
   return (
     <div className="App">
       <Arrays />
     </div>
   );
 }
-
-export default App;

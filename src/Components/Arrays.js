@@ -1,7 +1,8 @@
-import { Component } from 'react';
-import { Button } from './Button';
-import { PostCard } from './PostCard';
-import { TextInput } from './TextInput';
+import React from "react";
+import { Component } from "react";
+import { Button } from "./Button";
+import { PostCard } from "./PostCard";
+import { TextInput } from "./TextInput";
 
 class Arrays extends Component {
   state = {
@@ -9,7 +10,7 @@ class Arrays extends Component {
     allPosts: [],
     page: 0,
     postsPerPage: 5,
-    searchValue: '',
+    searchValue: "",
   };
 
   componentDidMount() {
@@ -18,8 +19,8 @@ class Arrays extends Component {
 
   loadPosts = async () => {
     const { page, postsPerPage } = this.state;
-    const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts');
-    const photoResponse = fetch('https://jsonplaceholder.typicode.com/photos');
+    const postsResponse = fetch("https://jsonplaceholder.typicode.com/posts");
+    const photoResponse = fetch("https://jsonplaceholder.typicode.com/photos");
 
     const [posts, photos] = await Promise.all([postsResponse, photoResponse]);
 
