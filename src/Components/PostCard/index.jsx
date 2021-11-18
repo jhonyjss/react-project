@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PostCard = (post) => {
+export default function PostCard(post = []) {
   return (
     <div className="post">
       <img src={post.cover} alt={post.title} />
@@ -10,4 +10,4 @@ export const PostCard = (post) => {
       </div>
     </div>
   );
-};
+}

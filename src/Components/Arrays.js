@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Button } from "./Button";
-import { PostCard } from "./PostCard";
+import Posts from "./Post";
 import { TextInput } from "./TextInput";
 
 class Arrays extends Component {
@@ -73,19 +73,7 @@ class Arrays extends Component {
             handleChange={this.handleChange}
           ></TextInput>
         </div>
-        {filteredPosts.length > 0 && (
-          <div className="posts">
-            {filteredPosts.map((post) => (
-              <PostCard
-                key={post.id}
-                title={post.title}
-                body={post.body}
-                id={post.id}
-                cover={post.cover}
-              />
-            ))}
-          </div>
-        )}
+        <Posts posts={filteredPosts}></Posts>
 
         {filteredPosts.length === 0 && <p>Não existem posts =(</p>}
         {!searchValue && (

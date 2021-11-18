@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 export function TextInput({ searchValue, handleChange }) {
   return (
     <>
-      <label for="search" className="flex m-0">
+      <label htmlFor="search" className="flex m-0">
         Filtro:
       </label>
       <input
